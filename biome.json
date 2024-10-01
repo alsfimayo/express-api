@@ -1,6 +1,8 @@
 {
+    "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "organizeImports": {
-    "enabled": true
+    "enabled": true,
+    "include": ["src/**/*.ts"]
   },
   "linter": {
     "enabled": true,
@@ -9,6 +11,17 @@
       "correctness": {
         "noUnusedVariables": {
           "level": "error"
+        },
+        "noUnusedImports":{
+            "level": "error"
+        }
+      },
+      "style":{
+        "useFilenamingConvention":{
+            "level": "error",
+            "options":{
+                "filenameCases":["snake_case","export","kebab-case"]
+            }
         }
       }
     },
@@ -22,5 +35,6 @@
     "lineEnding": "lf",
     "lineWidth": 80,
     "attributePosition": "auto"
+
   }
 }
