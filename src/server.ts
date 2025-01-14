@@ -11,6 +11,7 @@ import { createServer } from "node:http";
 import { Server } from "socket.io";
 import { socketHandler } from "~/lib/socket";
 import path from "node:path";
+import swaggerDocs from "~/lib/swagger-docs";
 
 const app = express();
 app.use(cors());
@@ -45,6 +46,9 @@ app.use("/api/v1/data", express.static(path.join(__dirname, "../data")));
 
 // API routes
 app.use("/api/v1", MAIN_ROUTER);
+
+// Swagger docs
+swaggerDocs(app);
 // Error handler middleware
 app.use(errorHandle);
 
