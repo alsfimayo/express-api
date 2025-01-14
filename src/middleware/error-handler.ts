@@ -1,4 +1,4 @@
-import logger from "@libs/logger";
+import logger from "~/lib/logger";
 import type { Request, Response, NextFunction } from "express";
 
 const errorHandler = (

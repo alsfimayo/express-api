@@ -1,15 +1,15 @@
 import "@utils/env";
-import { connectDB } from "@libs/db";
+import { connectDB } from "~/lib/db";
 import express from "express";
 import cors from "cors";
-import helmet from "helmet";
+// import helmet from "helmet";
 import morgan from "morgan";
-import errorHandle from "@middleware/error-handler";
-import logger from "@libs/logger";
-import MAIN_ROUTER from "@v1/routes";
+import errorHandle from "~/middleware/error-handler";
+import logger from "~/lib/logger";
+import MAIN_ROUTER from "~/v1/routes";
 import { createServer } from "node:http";
 import { Server } from "socket.io";
-import { socketHandler } from "@libs/socket";
+import { socketHandler } from "~/lib/socket";
 import path from "node:path";
 
 const app = express();

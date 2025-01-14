@@ -1,7 +1,7 @@
 import type { Server } from "socket.io";
 import type { DefaultEventsMap } from "socket.io/dist/typed-events";
 import { uploadFileChatUsingSocket } from "./socket-file";
-import logger from "@libs/logger";
+import logger from "~/lib/logger";
 
 export function socketHandler(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
