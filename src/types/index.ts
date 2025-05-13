@@ -10,6 +10,24 @@ export interface IAuthRequest<T = {}, P = {}, Q = {}>
 // ? JWT TOKEN PAYLOAD
 export type TokenPayload = {
   email: string;
-  id: string;
-  role?: "clinic" | "doctor" | "admin" | "patient";
+  id: number;
 };
+export type Signup = {
+  email:    string;
+  password: string;
+  fname:    string;
+  lname:    string;
+};
+
+export type Login = {
+  email:    string;
+  password: string;
+};
+export type customer={
+  name:string,
+  phone:string,
+  address:string
+}
+export type catagory={
+  name:string
+}

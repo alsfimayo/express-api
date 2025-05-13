@@ -14,9 +14,9 @@ expand(
 );
 
 const EnvSchema = z.object({
-  PORT_NO: z.number(),
-  DATABASE_URI: z.string().url(),
-  JWT_SECRET: z.string(),
+  PORT_NO: z.string(),
+  // DATABASE_URI: z.string().url(),
+   JWT_SECRET: z.string(),
   //   DATABASE_AUTH_TOKEN: z.string().optional(),
 });
 

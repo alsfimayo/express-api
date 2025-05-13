@@ -1,0 +1,32 @@
+import bcrypt from 'bcrypt'
+import { Http } from 'winston/lib/winston/transports'
+import {HttpError} from '~/middleware/error-handler'
+import type {customer} from 'src/types/index'
+import { string } from 'zod'
+import { PrismaClient } from '~/generated/prisma'
+const prisma=new PrismaClient()
+
+const CUSTOMER_SERVICE={
+    add:async(input:customer)=>{
+        const newCustomer=await prisma.customer.create({
+            data:{
+                name:input.name,
+                phone:input.phone,
+                address:input.address
+            },
+        });
+        return newCustomer;
+
+    },
+    getCustomerById:async(id:number)=>{
+        const customerById=await prisma.customer.findFirst({
+            where:{id:Number(id)}
+        })
+        return customerById;
+    },
+    all:async()=>{
+        const allCustomer=await prisma.customer.findMany({})
+        return allCustomer;
+    }
+}
+export default CUSTOMER_SERVICE

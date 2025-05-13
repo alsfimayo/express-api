@@ -1,17 +1,17 @@
-import "@utils/env";
-import { connectDB } from "~/lib/db";
+// import "@utils/env";
+
 import express from "express";
 import cors from "cors";
 // import helmet from "helmet";
 import morgan from "morgan";
-import errorHandle from "~/middleware/error-handler";
+import errorHandle from "src/middleware/error-handler";
 import logger from "~/lib/logger";
-import MAIN_ROUTER from "~/v1/routes";
 import { createServer } from "node:http";
 import { Server } from "socket.io";
 import { socketHandler } from "~/lib/socket";
-import path from "node:path";
-import swaggerDocs from "~/lib/swagger-docs";
+import MAIN_ROUTER from "./routes";
+import env from "./env";
+
 
 const app = express();
 app.use(cors());
@@ -26,7 +26,7 @@ const io = new Server(server, {
 socketHandler(io);
 
 // Database connection
-connectDB();
+
 
 // Middleware
 
@@ -41,18 +41,17 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from the 'data' folder
-app.use("/api/v1/data", express.static(path.join(__dirname, "../data")));
+
 
 // API routes
 app.use("/api/v1", MAIN_ROUTER);
 
 // Swagger docs
-swaggerDocs(app);
+
 // Error handler middleware
 app.use(errorHandle);
 
 // Start the server
-server.listen(process.env.PORT_NO, () => {
+server.listen(env.PORT_NO, () => {
   logger.info(`Server started on port :${process.env.PORT_NO}`);
 });
