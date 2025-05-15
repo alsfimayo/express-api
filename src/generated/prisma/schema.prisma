@@ -24,18 +24,19 @@ model user {
 }
 
 model Customer {
-  id      Int    @id @default(autoincrement())
-  name    String
-  phone   String
-  address String
-  sales   Sale[]
-  kahta   Khata?
+  id          Int           @id @default(autoincrement())
+  name        String
+  phone       String
+  address     String
+  sales       Sale[]
+  transaction Transaction[]
 }
 
 model Product {
   id         Int        @id @default(autoincrement())
   name       String
   price      Float
+  batch_no   String
   catagoryId Int
   catagory   Category   @relation(fields: [catagoryId], references: [id])
   supplierId Int
@@ -44,20 +45,19 @@ model Product {
   stocks     Stock[]
 }
 
-model Khata {
-  id           Int           @id @default(autoincrement())
-  customer     Customer      @relation(fields: [customerId], references: [id])
-  customerId   Int           @unique
-  totalDue     Float         @default(0.0)
-  transactions Transaction[]
-}
-
 model Transaction {
-  id      Int             @id @default(autoincrement())
-  khataId Int
-  khata   Khata           @relation(fields: [khataId], references: [id])
-  amount  Float
-  type    TransactionType
+  id Int @id @default(autoincrement())
+
+  totalAmount    Float
+  discountAmount Float
+  type           TransactionType
+  paymentmethod  paymentMethod
+  customerId     Int
+  saleId         Int?
+  sale           Sale?              @relation(fields: [saleId], references: [id])
+  customer       Customer           @relation(fields: [customerId], references: [id])
+  paid           Paid?
+  unpain         unPaidTransaction?
 
   date DateTime @default(now())
 }
@@ -65,6 +65,36 @@ model Transaction {
 enum TransactionType {
   CREDIT
   PAYMENT
+}
+
+enum paymentMethod {
+  CASH
+  CARD
+  BANK_TRANSFER
+  OTHER
+}
+
+model Paid {
+  id            Int    @id @default(autoincrement())
+  transactionId Int    @unique
+  name          String //staff member received payment
+
+  transaction Transaction @relation(fields: [transactionId], references: [id])
+}
+
+model unPaidTransaction {
+  id            Int          @id @default(autoincrement())
+  transactionId Int          @unique
+  transaction   Transaction  @relation(fields: [transactionId], references: [id])
+  commitment    Commitment[]
+}
+
+model Commitment {
+  id                Int               @id @default(autoincrement())
+  unpaidId          Int
+  unpaidtransaction unPaidTransaction @relation(fields: [unpaidId], references: [id])
+  commitmentNote    String?
+  commitmentDate    DateTime
 }
 
 model Category {
@@ -81,12 +111,13 @@ model Supplier {
 }
 
 model Sale {
-  id         Int        @id @default(autoincrement())
-  customerId Int
-  date       DateTime   @default(now())
-  total      Float
-  customer   Customer   @relation(fields: [customerId], references: [id])
-  saleItems  SaleItem[]
+  id          Int           @id @default(autoincrement())
+  customerId  Int
+  date        DateTime      @default(now())
+  total       Float
+  customer    Customer      @relation(fields: [customerId], references: [id])
+  saleItems   SaleItem[]
+  transaction Transaction[]
 }
 
 model SaleItem {

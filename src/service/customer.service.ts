@@ -1,18 +1,20 @@
 import bcrypt from 'bcrypt'
 import { Http } from 'winston/lib/winston/transports'
 import {HttpError} from '~/middleware/error-handler'
-import type {customer} from 'src/types/index'
+import type {Customer} from 'src/types/index'
 import { string } from 'zod'
 import { PrismaClient } from '~/generated/prisma'
 const prisma=new PrismaClient()
 
 const CUSTOMER_SERVICE={
-    add:async(input:customer)=>{
+    add:async(input:Customer)=>{
         const newCustomer=await prisma.customer.create({
             data:{
                 name:input.name,
                 phone:input.phone,
-                address:input.address
+                address:input.address,
+                
+                
             },
         });
         return newCustomer;

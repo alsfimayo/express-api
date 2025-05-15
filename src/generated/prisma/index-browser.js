@@ -139,22 +139,38 @@ exports.Prisma.ProductScalarFieldEnum = {
   id: 'id',
   name: 'name',
   price: 'price',
+  batch_no: 'batch_no',
   catagoryId: 'catagoryId',
   supplierId: 'supplierId'
 };
 
-exports.Prisma.KhataScalarFieldEnum = {
-  id: 'id',
-  customerId: 'customerId',
-  totalDue: 'totalDue'
-};
-
 exports.Prisma.TransactionScalarFieldEnum = {
   id: 'id',
-  khataId: 'khataId',
-  amount: 'amount',
+  totalAmount: 'totalAmount',
+  discountAmount: 'discountAmount',
   type: 'type',
+  paymentmethod: 'paymentmethod',
+  customerId: 'customerId',
+  saleId: 'saleId',
   date: 'date'
+};
+
+exports.Prisma.PaidScalarFieldEnum = {
+  id: 'id',
+  transactionId: 'transactionId',
+  name: 'name'
+};
+
+exports.Prisma.UnPaidTransactionScalarFieldEnum = {
+  id: 'id',
+  transactionId: 'transactionId'
+};
+
+exports.Prisma.CommitmentScalarFieldEnum = {
+  id: 'id',
+  unpaidId: 'unpaidId',
+  commitmentNote: 'commitmentNote',
+  commitmentDate: 'commitmentDate'
 };
 
 exports.Prisma.CategoryScalarFieldEnum = {
@@ -200,17 +216,31 @@ exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
 exports.TransactionType = exports.$Enums.TransactionType = {
   CREDIT: 'CREDIT',
   PAYMENT: 'PAYMENT'
+};
+
+exports.paymentMethod = exports.$Enums.paymentMethod = {
+  CASH: 'CASH',
+  CARD: 'CARD',
+  BANK_TRANSFER: 'BANK_TRANSFER',
+  OTHER: 'OTHER'
 };
 
 exports.Prisma.ModelName = {
   user: 'user',
   Customer: 'Customer',
   Product: 'Product',
-  Khata: 'Khata',
   Transaction: 'Transaction',
+  Paid: 'Paid',
+  unPaidTransaction: 'unPaidTransaction',
+  Commitment: 'Commitment',
   Category: 'Category',
   Supplier: 'Supplier',
   Sale: 'Sale',
