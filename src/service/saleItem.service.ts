@@ -1,20 +1,23 @@
 import { update} from "lodash";
 import { number } from "zod";
 import prisma from "~/lib/prisma";
-import { saleItem } from "~/types";
+
+import { saleItem } from "src/types/index";
+
 
 
 const SALEITEM_SERVICE={
     add:async(data:saleItem)=>{
-        const add=await prisma.saleItem.create({
+        const addsaleItem=await prisma.saleItem.create({
             data:{
                 saleId:data.saleId,
                 productId:data.productId,
                 quantity:data.quantity,
                 unitPrice:data.unitPrice
-            },
+
+            }
         });
-        return add;
+        return addsaleItem
     },
     update:async(data:saleItem,id:number)=>{
         const update=await prisma.saleItem.update({

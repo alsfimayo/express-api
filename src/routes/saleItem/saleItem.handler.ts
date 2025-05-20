@@ -6,9 +6,15 @@ import { saleItem } from "~/types";
 
 const SALEITEM_HANDLER={
     add:asyncHandler<saleItem>(async(req,res)=>{
-        const addItem=await SALEITEM_SERVICE.add(req.body);
-        res.status(201).json({message:"saleItem created successfully",data:addItem});
+        const addsaleItem=await SALEITEM_SERVICE.add(req.body)
+        res.status(201).json({message:"saleItems created successfully",data:addsaleItem})
     }),
+       
+  
+
+        
+        
+    
     update:asyncHandler<saleItem,{id:string}>(async(req,res)=>{
         const {id}=req.params;
         const updateItem=await SALEITEM_SERVICE.update(req.body,Number(id));
@@ -21,6 +27,7 @@ const SALEITEM_HANDLER={
     id:asyncHandler<{},{id:string}>(async(req,res)=>{
         const {id}=req.params
         const saleItemById=await SALEITEM_SERVICE.getById(Number(id))
+        res.status(200).json({message:"saleItem get by id",data:saleItemById})
     })
 }
 export default SALEITEM_HANDLER
