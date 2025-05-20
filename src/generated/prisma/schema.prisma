@@ -131,10 +131,10 @@ model SaleItem {
 }
 
 model Stock {
-  id           Int      @id @default(autoincrement())
-  quantity     Int
-  purchaseDate DateTime
-  expiryDate   DateTime
-  productId    Int
-  product      Product  @relation(fields: [productId], references: [id])
+  id                Int       @id @default(autoincrement())
+  quantity          Int
+  manufacturingDate DateTime?
+  expiryDate        DateTime
+  productId         Int
+  product           Product   @relation(fields: [productId], references: [id])
 }

@@ -20,9 +20,10 @@ const STOCK_HANDLER={
     }),
 
 
-    delete:asyncHandler<Stock,{id:number}>(async(req,res)=>{
-        const id=Number(req.params.id)
-        const data=await STOCK_SERVICE.delete(id)
+    delete:asyncHandler<{},{id:string}>(async(req,res)=>{
+        const {id}=req.params ;
+        
+        const data=await STOCK_SERVICE.delete(Number(id))
         res.status(200).json({message:"deleted desired value", data:data});
     }),
     id:asyncHandler<{id:number}>(async(req,res)=>{

@@ -1,6 +1,6 @@
 import { create, get, update } from "lodash";
 import { number } from "zod";
-import { Prisma, PrismaClient } from "~/generated/prisma";
+import { PrismaClient } from "~/generated/prisma";
 import type { Stock } from "~/types";
 
 const prisma=new PrismaClient();
@@ -9,10 +9,10 @@ const STOCK_SERVICE={
     create:async(data:Stock)=>{
         const createStock=await prisma.stock.create({
             data:{
-                quantity:data.quantity,
-                purchaseDate:data.purchaseDate,
-                expiryDate:data.expiryDate,
-                productId:data.productId,
+                quantity :data.quantity,
+                manufacturingDate:data.manufacturingDate,
+                expiryDate :data.expiryDate,
+                productId :data.productId,
             }
         });
         return createStock
@@ -22,7 +22,7 @@ const STOCK_SERVICE={
 
             where:{id:Number(id)},
             data:{quantity:data.quantity,
-                  purchaseDate:data.purchaseDate,
+                  manufacturingDate:data.manufacturingDate,
                   expiryDate:data.expiryDate,
                   productId:data.productId
             }
@@ -30,8 +30,9 @@ const STOCK_SERVICE={
         return updateStock
     },
     delete:async(id:number)=>{
+        
         const deleteStock=await prisma.stock.delete({
-            where:{id:Number(id)}
+            where:{id}
         })
         return deleteStock;
     },

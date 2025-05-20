@@ -10,6 +10,7 @@ function upload(variant: "image" | "docs" | "both") {
   return multer({
     storage: multer.diskStorage({
       destination(_req, _file, cb) {
+        console.log(_file)
         cb(null, destinationPath);
       },
       filename(_req, file, cb) {

@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient } from "~/generated/prisma";
+import { PrismaClient } from "~/generated/prisma";
 import type { Product } from "src/types/index";
 import { number, string } from "zod";
 import { update } from "lodash";

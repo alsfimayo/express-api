@@ -2,6 +2,7 @@
 
 import { Prisma, PrismaClient } from "~/generated/prisma";
 const prisma =new PrismaClient();
+export default prisma;
 export const UserPrisma={
     findByEmail:async (email:string)=>{
         return prisma.user.findUnique({
@@ -18,3 +19,4 @@ export const UserPrisma={
     },
 
 };
+

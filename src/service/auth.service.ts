@@ -7,7 +7,7 @@ import type {Signup,Login,TokenPayload} from 'src/types/index'
 import { HttpError } from '~/middleware/error-handler'
 import { createToken } from '~/utils/jwt'
 
- const prisma=new PrismaClient()
+ const prisma=new PrismaClient();
 const AUTH_SERVICE={
     register:async(data:Signup)=>{
         const isUserExist=await UserPrisma.findByEmail(data.email);

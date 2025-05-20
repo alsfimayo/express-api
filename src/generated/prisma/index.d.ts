@@ -407,8 +407,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.7.0
-   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
+   * Prisma Client JS version: 6.8.1
+   * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
    */
   export type PrismaVersion = {
     client: string
@@ -14335,7 +14335,7 @@ export namespace Prisma {
   export type StockMinAggregateOutputType = {
     id: number | null
     quantity: number | null
-    purchaseDate: Date | null
+    manufacturingDate: Date | null
     expiryDate: Date | null
     productId: number | null
   }
@@ -14343,7 +14343,7 @@ export namespace Prisma {
   export type StockMaxAggregateOutputType = {
     id: number | null
     quantity: number | null
-    purchaseDate: Date | null
+    manufacturingDate: Date | null
     expiryDate: Date | null
     productId: number | null
   }
@@ -14351,7 +14351,7 @@ export namespace Prisma {
   export type StockCountAggregateOutputType = {
     id: number
     quantity: number
-    purchaseDate: number
+    manufacturingDate: number
     expiryDate: number
     productId: number
     _all: number
@@ -14373,7 +14373,7 @@ export namespace Prisma {
   export type StockMinAggregateInputType = {
     id?: true
     quantity?: true
-    purchaseDate?: true
+    manufacturingDate?: true
     expiryDate?: true
     productId?: true
   }
@@ -14381,7 +14381,7 @@ export namespace Prisma {
   export type StockMaxAggregateInputType = {
     id?: true
     quantity?: true
-    purchaseDate?: true
+    manufacturingDate?: true
     expiryDate?: true
     productId?: true
   }
@@ -14389,7 +14389,7 @@ export namespace Prisma {
   export type StockCountAggregateInputType = {
     id?: true
     quantity?: true
-    purchaseDate?: true
+    manufacturingDate?: true
     expiryDate?: true
     productId?: true
     _all?: true
@@ -14484,7 +14484,7 @@ export namespace Prisma {
   export type StockGroupByOutputType = {
     id: number
     quantity: number
-    purchaseDate: Date
+    manufacturingDate: Date | null
     expiryDate: Date
     productId: number
     _count: StockCountAggregateOutputType | null
@@ -14511,7 +14511,7 @@ export namespace Prisma {
   export type StockSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     quantity?: boolean
-    purchaseDate?: boolean
+    manufacturingDate?: boolean
     expiryDate?: boolean
     productId?: boolean
     product?: boolean | ProductDefaultArgs<ExtArgs>
@@ -14520,7 +14520,7 @@ export namespace Prisma {
   export type StockSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     quantity?: boolean
-    purchaseDate?: boolean
+    manufacturingDate?: boolean
     expiryDate?: boolean
     productId?: boolean
     product?: boolean | ProductDefaultArgs<ExtArgs>
@@ -14529,7 +14529,7 @@ export namespace Prisma {
   export type StockSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     quantity?: boolean
-    purchaseDate?: boolean
+    manufacturingDate?: boolean
     expiryDate?: boolean
     productId?: boolean
     product?: boolean | ProductDefaultArgs<ExtArgs>
@@ -14538,12 +14538,12 @@ export namespace Prisma {
   export type StockSelectScalar = {
     id?: boolean
     quantity?: boolean
-    purchaseDate?: boolean
+    manufacturingDate?: boolean
     expiryDate?: boolean
     productId?: boolean
   }
 
-  export type StockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "quantity" | "purchaseDate" | "expiryDate" | "productId", ExtArgs["result"]["stock"]>
+  export type StockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "quantity" | "manufacturingDate" | "expiryDate" | "productId", ExtArgs["result"]["stock"]>
   export type StockInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     product?: boolean | ProductDefaultArgs<ExtArgs>
   }
@@ -14562,7 +14562,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       quantity: number
-      purchaseDate: Date
+      manufacturingDate: Date | null
       expiryDate: Date
       productId: number
     }, ExtArgs["result"]["stock"]>
@@ -14991,7 +14991,7 @@ export namespace Prisma {
   interface StockFieldRefs {
     readonly id: FieldRef<"Stock", 'Int'>
     readonly quantity: FieldRef<"Stock", 'Int'>
-    readonly purchaseDate: FieldRef<"Stock", 'DateTime'>
+    readonly manufacturingDate: FieldRef<"Stock", 'DateTime'>
     readonly expiryDate: FieldRef<"Stock", 'DateTime'>
     readonly productId: FieldRef<"Stock", 'Int'>
   }
@@ -15537,7 +15537,7 @@ export namespace Prisma {
   export const StockScalarFieldEnum: {
     id: 'id',
     quantity: 'quantity',
-    purchaseDate: 'purchaseDate',
+    manufacturingDate: 'manufacturingDate',
     expiryDate: 'expiryDate',
     productId: 'productId'
   };
@@ -16279,7 +16279,7 @@ export namespace Prisma {
     NOT?: StockWhereInput | StockWhereInput[]
     id?: IntFilter<"Stock"> | number
     quantity?: IntFilter<"Stock"> | number
-    purchaseDate?: DateTimeFilter<"Stock"> | Date | string
+    manufacturingDate?: DateTimeNullableFilter<"Stock"> | Date | string | null
     expiryDate?: DateTimeFilter<"Stock"> | Date | string
     productId?: IntFilter<"Stock"> | number
     product?: XOR<ProductScalarRelationFilter, ProductWhereInput>
@@ -16288,7 +16288,7 @@ export namespace Prisma {
   export type StockOrderByWithRelationInput = {
     id?: SortOrder
     quantity?: SortOrder
-    purchaseDate?: SortOrder
+    manufacturingDate?: SortOrderInput | SortOrder
     expiryDate?: SortOrder
     productId?: SortOrder
     product?: ProductOrderByWithRelationInput
@@ -16300,7 +16300,7 @@ export namespace Prisma {
     OR?: StockWhereInput[]
     NOT?: StockWhereInput | StockWhereInput[]
     quantity?: IntFilter<"Stock"> | number
-    purchaseDate?: DateTimeFilter<"Stock"> | Date | string
+    manufacturingDate?: DateTimeNullableFilter<"Stock"> | Date | string | null
     expiryDate?: DateTimeFilter<"Stock"> | Date | string
     productId?: IntFilter<"Stock"> | number
     product?: XOR<ProductScalarRelationFilter, ProductWhereInput>
@@ -16309,7 +16309,7 @@ export namespace Prisma {
   export type StockOrderByWithAggregationInput = {
     id?: SortOrder
     quantity?: SortOrder
-    purchaseDate?: SortOrder
+    manufacturingDate?: SortOrderInput | SortOrder
     expiryDate?: SortOrder
     productId?: SortOrder
     _count?: StockCountOrderByAggregateInput
@@ -16325,7 +16325,7 @@ export namespace Prisma {
     NOT?: StockScalarWhereWithAggregatesInput | StockScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Stock"> | number
     quantity?: IntWithAggregatesFilter<"Stock"> | number
-    purchaseDate?: DateTimeWithAggregatesFilter<"Stock"> | Date | string
+    manufacturingDate?: DateTimeNullableWithAggregatesFilter<"Stock"> | Date | string | null
     expiryDate?: DateTimeWithAggregatesFilter<"Stock"> | Date | string
     productId?: IntWithAggregatesFilter<"Stock"> | number
   }
@@ -16887,7 +16887,7 @@ export namespace Prisma {
 
   export type StockCreateInput = {
     quantity: number
-    purchaseDate: Date | string
+    manufacturingDate?: Date | string | null
     expiryDate: Date | string
     product: ProductCreateNestedOneWithoutStocksInput
   }
@@ -16895,14 +16895,14 @@ export namespace Prisma {
   export type StockUncheckedCreateInput = {
     id?: number
     quantity: number
-    purchaseDate: Date | string
+    manufacturingDate?: Date | string | null
     expiryDate: Date | string
     productId: number
   }
 
   export type StockUpdateInput = {
     quantity?: IntFieldUpdateOperationsInput | number
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    manufacturingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
     product?: ProductUpdateOneRequiredWithoutStocksNestedInput
   }
@@ -16910,7 +16910,7 @@ export namespace Prisma {
   export type StockUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     quantity?: IntFieldUpdateOperationsInput | number
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    manufacturingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
     productId?: IntFieldUpdateOperationsInput | number
   }
@@ -16918,21 +16918,21 @@ export namespace Prisma {
   export type StockCreateManyInput = {
     id?: number
     quantity: number
-    purchaseDate: Date | string
+    manufacturingDate?: Date | string | null
     expiryDate: Date | string
     productId: number
   }
 
   export type StockUpdateManyMutationInput = {
     quantity?: IntFieldUpdateOperationsInput | number
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    manufacturingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StockUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     quantity?: IntFieldUpdateOperationsInput | number
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    manufacturingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
     productId?: IntFieldUpdateOperationsInput | number
   }
@@ -17615,10 +17615,21 @@ export namespace Prisma {
     unitPrice?: SortOrder
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type StockCountOrderByAggregateInput = {
     id?: SortOrder
     quantity?: SortOrder
-    purchaseDate?: SortOrder
+    manufacturingDate?: SortOrder
     expiryDate?: SortOrder
     productId?: SortOrder
   }
@@ -17632,7 +17643,7 @@ export namespace Prisma {
   export type StockMaxOrderByAggregateInput = {
     id?: SortOrder
     quantity?: SortOrder
-    purchaseDate?: SortOrder
+    manufacturingDate?: SortOrder
     expiryDate?: SortOrder
     productId?: SortOrder
   }
@@ -17640,7 +17651,7 @@ export namespace Prisma {
   export type StockMinOrderByAggregateInput = {
     id?: SortOrder
     quantity?: SortOrder
-    purchaseDate?: SortOrder
+    manufacturingDate?: SortOrder
     expiryDate?: SortOrder
     productId?: SortOrder
   }
@@ -17649,6 +17660,20 @@ export namespace Prisma {
     id?: SortOrder
     quantity?: SortOrder
     productId?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -18285,6 +18310,10 @@ export namespace Prisma {
     connect?: ProductWhereUniqueInput
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type ProductUpdateOneRequiredWithoutStocksNestedInput = {
     create?: XOR<ProductCreateWithoutStocksInput, ProductUncheckedCreateWithoutStocksInput>
     connectOrCreate?: ProductCreateOrConnectWithoutStocksInput
@@ -18506,6 +18535,31 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type SaleCreateWithoutCustomerInput = {
     date?: Date | string
     total: number
@@ -18675,14 +18729,14 @@ export namespace Prisma {
 
   export type StockCreateWithoutProductInput = {
     quantity: number
-    purchaseDate: Date | string
+    manufacturingDate?: Date | string | null
     expiryDate: Date | string
   }
 
   export type StockUncheckedCreateWithoutProductInput = {
     id?: number
     quantity: number
-    purchaseDate: Date | string
+    manufacturingDate?: Date | string | null
     expiryDate: Date | string
   }
 
@@ -18787,7 +18841,7 @@ export namespace Prisma {
     NOT?: StockScalarWhereInput | StockScalarWhereInput[]
     id?: IntFilter<"Stock"> | number
     quantity?: IntFilter<"Stock"> | number
-    purchaseDate?: DateTimeFilter<"Stock"> | Date | string
+    manufacturingDate?: DateTimeNullableFilter<"Stock"> | Date | string | null
     expiryDate?: DateTimeFilter<"Stock"> | Date | string
     productId?: IntFilter<"Stock"> | number
   }
@@ -19627,7 +19681,7 @@ export namespace Prisma {
   export type StockCreateManyProductInput = {
     id?: number
     quantity: number
-    purchaseDate: Date | string
+    manufacturingDate?: Date | string | null
     expiryDate: Date | string
   }
 
@@ -19653,21 +19707,21 @@ export namespace Prisma {
 
   export type StockUpdateWithoutProductInput = {
     quantity?: IntFieldUpdateOperationsInput | number
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    manufacturingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StockUncheckedUpdateWithoutProductInput = {
     id?: IntFieldUpdateOperationsInput | number
     quantity?: IntFieldUpdateOperationsInput | number
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    manufacturingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StockUncheckedUpdateManyWithoutProductInput = {
     id?: IntFieldUpdateOperationsInput | number
     quantity?: IntFieldUpdateOperationsInput | number
-    purchaseDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    manufacturingDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

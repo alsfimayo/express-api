@@ -49,7 +49,19 @@ export type Supplier={
 
 export type Stock = {
   quantity: number;
-  purchaseDate: Date;
+  manufacturingDate: Date;
   expiryDate: Date;
   productId: number;
-};
+}
+
+export type Sale={
+  customerId :number;
+  total:number
+
+}
+export type saleItem={
+    saleId:number,
+    productId:number,
+    quantity:number,
+    unitPrice:number
+}

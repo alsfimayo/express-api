@@ -1,5 +1,5 @@
 import { update } from "lodash";
-import { Prisma, PrismaClient } from "~/generated/prisma";
+import { PrismaClient } from "~/generated/prisma";
 import type { Supplier} from "~/types";
 const prisma=new PrismaClient();
 const SUPPLIER_SERVICE={

@@ -1,5 +1,6 @@
 // import "@utils/env";
 
+
 import express from "express";
 import cors from "cors";
 // import helmet from "helmet";
@@ -11,9 +12,28 @@ import { Server } from "socket.io";
 import { socketHandler } from "~/lib/socket";
 import MAIN_ROUTER from "./routes";
 import env from "./env";
+import path from "path";
+
+// import {multer_doc, multer_img_doc, multer_img} from "~/middleware/multer";
+// import { Router } from "express";
+// import { Express } from "express";
+// import multer from "multer";
+// const upload=multer({dest: 'uploads'});
+// const UPLOAD_ROUTER=Router();
+// UPLOAD_ROUTER.post("/file",multer_img_doc.array('file'),(req,res)=>{
+//     res.status(201).json({message:"files uploaded successfully",file:req.files})
+// })
+
+// export default UPLOAD_ROUTER;
+ 
+
 
 
 const app = express();
+// // app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
+// app.post("/api/upload",(req,res)=>{
+//   res.send('api File Uploaded Successfully')
+// })
 app.use(cors());
 const server = createServer(app);
 const io = new Server(server, {
@@ -21,6 +41,7 @@ const io = new Server(server, {
     origin: "*",
   },
 });
+
 // Socket.io handler
 
 socketHandler(io);

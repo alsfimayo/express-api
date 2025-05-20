@@ -122,7 +122,7 @@ model SaleItem {
 model Stock{
   id Int @id @default(autoincrement())
   quantity Int
-  purchaseDate DateTime
+  manufacturingDate  DateTime?
   expiryDate DateTime
   productId Int
   product Product @relation(fields: [productId],references: [id])
