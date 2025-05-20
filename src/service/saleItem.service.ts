@@ -38,7 +38,7 @@ const SALEITEM_SERVICE={
     },
     getById:async(id:number)=>{
         const getDataById=await prisma.saleItem.findFirst({
-            where:{id:Number(id)}
+            where:{id}
         })
     return getDataById    
     }

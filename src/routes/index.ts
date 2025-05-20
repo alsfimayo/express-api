@@ -7,8 +7,8 @@ import PRODUCT_ROUTER from "./product/product.routes";
 import SUPPLIER_ROUTER from "./supplier/supplier.routes";
 import STOCK_ROUTER from "./stock/stock.routes";
 import SALE_ROUTER from "./sale/sale.routes";
-import SALEITEM_ROUTER from "./stock/saleItem/saleItem.routes";
-import SALEITEM_HANDLER from "./stock/saleItem/saleItem.handler";
+import SALEITEM_ROUTER from "./saleItem/saleItem.routes";
+
 import UPLOAD_ROUTER from "./upload.routes";
 
 
