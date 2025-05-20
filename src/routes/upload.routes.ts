@@ -1,7 +1,7 @@
- import {multer_doc, multer_img_doc, multer_img} from "~/middleware/multer";
+ 
 import { Router } from "express";
 import { Express } from "express";
-import { Customer } from "~/types";
+
 import path from "node:path";
 import multer from "multer";
 const UPLOAD_ROUTER=Router();
