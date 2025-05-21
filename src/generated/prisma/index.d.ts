@@ -6689,19 +6689,19 @@ export namespace Prisma {
   export type PaidMinAggregateOutputType = {
     id: number | null
     transactionId: number | null
-    name: string | null
+    recipientName: string | null
   }
 
   export type PaidMaxAggregateOutputType = {
     id: number | null
     transactionId: number | null
-    name: string | null
+    recipientName: string | null
   }
 
   export type PaidCountAggregateOutputType = {
     id: number
     transactionId: number
-    name: number
+    recipientName: number
     _all: number
   }
 
@@ -6719,19 +6719,19 @@ export namespace Prisma {
   export type PaidMinAggregateInputType = {
     id?: true
     transactionId?: true
-    name?: true
+    recipientName?: true
   }
 
   export type PaidMaxAggregateInputType = {
     id?: true
     transactionId?: true
-    name?: true
+    recipientName?: true
   }
 
   export type PaidCountAggregateInputType = {
     id?: true
     transactionId?: true
-    name?: true
+    recipientName?: true
     _all?: true
   }
 
@@ -6824,7 +6824,7 @@ export namespace Prisma {
   export type PaidGroupByOutputType = {
     id: number
     transactionId: number
-    name: string
+    recipientName: string
     _count: PaidCountAggregateOutputType | null
     _avg: PaidAvgAggregateOutputType | null
     _sum: PaidSumAggregateOutputType | null
@@ -6849,31 +6849,31 @@ export namespace Prisma {
   export type PaidSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     transactionId?: boolean
-    name?: boolean
+    recipientName?: boolean
     transaction?: boolean | TransactionDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["paid"]>
 
   export type PaidSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     transactionId?: boolean
-    name?: boolean
+    recipientName?: boolean
     transaction?: boolean | TransactionDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["paid"]>
 
   export type PaidSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     transactionId?: boolean
-    name?: boolean
+    recipientName?: boolean
     transaction?: boolean | TransactionDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["paid"]>
 
   export type PaidSelectScalar = {
     id?: boolean
     transactionId?: boolean
-    name?: boolean
+    recipientName?: boolean
   }
 
-  export type PaidOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "transactionId" | "name", ExtArgs["result"]["paid"]>
+  export type PaidOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "transactionId" | "recipientName", ExtArgs["result"]["paid"]>
   export type PaidInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     transaction?: boolean | TransactionDefaultArgs<ExtArgs>
   }
@@ -6892,7 +6892,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       transactionId: number
-      name: string
+      recipientName: string
     }, ExtArgs["result"]["paid"]>
     composites: {}
   }
@@ -7319,7 +7319,7 @@ export namespace Prisma {
   interface PaidFieldRefs {
     readonly id: FieldRef<"Paid", 'Int'>
     readonly transactionId: FieldRef<"Paid", 'Int'>
-    readonly name: FieldRef<"Paid", 'String'>
+    readonly recipientName: FieldRef<"Paid", 'String'>
   }
     
 
@@ -8835,31 +8835,31 @@ export namespace Prisma {
 
   export type CommitmentAvgAggregateOutputType = {
     id: number | null
-    unpaidId: number | null
+    unpaidTransactionId: number | null
   }
 
   export type CommitmentSumAggregateOutputType = {
     id: number | null
-    unpaidId: number | null
+    unpaidTransactionId: number | null
   }
 
   export type CommitmentMinAggregateOutputType = {
     id: number | null
-    unpaidId: number | null
+    unpaidTransactionId: number | null
     commitmentNote: string | null
     commitmentDate: Date | null
   }
 
   export type CommitmentMaxAggregateOutputType = {
     id: number | null
-    unpaidId: number | null
+    unpaidTransactionId: number | null
     commitmentNote: string | null
     commitmentDate: Date | null
   }
 
   export type CommitmentCountAggregateOutputType = {
     id: number
-    unpaidId: number
+    unpaidTransactionId: number
     commitmentNote: number
     commitmentDate: number
     _all: number
@@ -8868,31 +8868,31 @@ export namespace Prisma {
 
   export type CommitmentAvgAggregateInputType = {
     id?: true
-    unpaidId?: true
+    unpaidTransactionId?: true
   }
 
   export type CommitmentSumAggregateInputType = {
     id?: true
-    unpaidId?: true
+    unpaidTransactionId?: true
   }
 
   export type CommitmentMinAggregateInputType = {
     id?: true
-    unpaidId?: true
+    unpaidTransactionId?: true
     commitmentNote?: true
     commitmentDate?: true
   }
 
   export type CommitmentMaxAggregateInputType = {
     id?: true
-    unpaidId?: true
+    unpaidTransactionId?: true
     commitmentNote?: true
     commitmentDate?: true
   }
 
   export type CommitmentCountAggregateInputType = {
     id?: true
-    unpaidId?: true
+    unpaidTransactionId?: true
     commitmentNote?: true
     commitmentDate?: true
     _all?: true
@@ -8986,7 +8986,7 @@ export namespace Prisma {
 
   export type CommitmentGroupByOutputType = {
     id: number
-    unpaidId: number
+    unpaidTransactionId: number
     commitmentNote: string | null
     commitmentDate: Date
     _count: CommitmentCountAggregateOutputType | null
@@ -9012,7 +9012,7 @@ export namespace Prisma {
 
   export type CommitmentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    unpaidId?: boolean
+    unpaidTransactionId?: boolean
     commitmentNote?: boolean
     commitmentDate?: boolean
     unpaidtransaction?: boolean | unPaidTransactionDefaultArgs<ExtArgs>
@@ -9020,7 +9020,7 @@ export namespace Prisma {
 
   export type CommitmentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    unpaidId?: boolean
+    unpaidTransactionId?: boolean
     commitmentNote?: boolean
     commitmentDate?: boolean
     unpaidtransaction?: boolean | unPaidTransactionDefaultArgs<ExtArgs>
@@ -9028,7 +9028,7 @@ export namespace Prisma {
 
   export type CommitmentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    unpaidId?: boolean
+    unpaidTransactionId?: boolean
     commitmentNote?: boolean
     commitmentDate?: boolean
     unpaidtransaction?: boolean | unPaidTransactionDefaultArgs<ExtArgs>
@@ -9036,12 +9036,12 @@ export namespace Prisma {
 
   export type CommitmentSelectScalar = {
     id?: boolean
-    unpaidId?: boolean
+    unpaidTransactionId?: boolean
     commitmentNote?: boolean
     commitmentDate?: boolean
   }
 
-  export type CommitmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "unpaidId" | "commitmentNote" | "commitmentDate", ExtArgs["result"]["commitment"]>
+  export type CommitmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "unpaidTransactionId" | "commitmentNote" | "commitmentDate", ExtArgs["result"]["commitment"]>
   export type CommitmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     unpaidtransaction?: boolean | unPaidTransactionDefaultArgs<ExtArgs>
   }
@@ -9059,7 +9059,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      unpaidId: number
+      unpaidTransactionId: number
       commitmentNote: string | null
       commitmentDate: Date
     }, ExtArgs["result"]["commitment"]>
@@ -9487,7 +9487,7 @@ export namespace Prisma {
    */
   interface CommitmentFieldRefs {
     readonly id: FieldRef<"Commitment", 'Int'>
-    readonly unpaidId: FieldRef<"Commitment", 'Int'>
+    readonly unpaidTransactionId: FieldRef<"Commitment", 'Int'>
     readonly commitmentNote: FieldRef<"Commitment", 'String'>
     readonly commitmentDate: FieldRef<"Commitment", 'DateTime'>
   }
@@ -15472,7 +15472,7 @@ export namespace Prisma {
   export const PaidScalarFieldEnum: {
     id: 'id',
     transactionId: 'transactionId',
-    name: 'name'
+    recipientName: 'recipientName'
   };
 
   export type PaidScalarFieldEnum = (typeof PaidScalarFieldEnum)[keyof typeof PaidScalarFieldEnum]
@@ -15488,7 +15488,7 @@ export namespace Prisma {
 
   export const CommitmentScalarFieldEnum: {
     id: 'id',
-    unpaidId: 'unpaidId',
+    unpaidTransactionId: 'unpaidTransactionId',
     commitmentNote: 'commitmentNote',
     commitmentDate: 'commitmentDate'
   };
@@ -15928,14 +15928,14 @@ export namespace Prisma {
     NOT?: PaidWhereInput | PaidWhereInput[]
     id?: IntFilter<"Paid"> | number
     transactionId?: IntFilter<"Paid"> | number
-    name?: StringFilter<"Paid"> | string
+    recipientName?: StringFilter<"Paid"> | string
     transaction?: XOR<TransactionScalarRelationFilter, TransactionWhereInput>
   }
 
   export type PaidOrderByWithRelationInput = {
     id?: SortOrder
     transactionId?: SortOrder
-    name?: SortOrder
+    recipientName?: SortOrder
     transaction?: TransactionOrderByWithRelationInput
   }
 
@@ -15945,14 +15945,14 @@ export namespace Prisma {
     AND?: PaidWhereInput | PaidWhereInput[]
     OR?: PaidWhereInput[]
     NOT?: PaidWhereInput | PaidWhereInput[]
-    name?: StringFilter<"Paid"> | string
+    recipientName?: StringFilter<"Paid"> | string
     transaction?: XOR<TransactionScalarRelationFilter, TransactionWhereInput>
   }, "id" | "transactionId">
 
   export type PaidOrderByWithAggregationInput = {
     id?: SortOrder
     transactionId?: SortOrder
-    name?: SortOrder
+    recipientName?: SortOrder
     _count?: PaidCountOrderByAggregateInput
     _avg?: PaidAvgOrderByAggregateInput
     _max?: PaidMaxOrderByAggregateInput
@@ -15966,7 +15966,7 @@ export namespace Prisma {
     NOT?: PaidScalarWhereWithAggregatesInput | PaidScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Paid"> | number
     transactionId?: IntWithAggregatesFilter<"Paid"> | number
-    name?: StringWithAggregatesFilter<"Paid"> | string
+    recipientName?: StringWithAggregatesFilter<"Paid"> | string
   }
 
   export type unPaidTransactionWhereInput = {
@@ -16019,7 +16019,7 @@ export namespace Prisma {
     OR?: CommitmentWhereInput[]
     NOT?: CommitmentWhereInput | CommitmentWhereInput[]
     id?: IntFilter<"Commitment"> | number
-    unpaidId?: IntFilter<"Commitment"> | number
+    unpaidTransactionId?: IntFilter<"Commitment"> | number
     commitmentNote?: StringNullableFilter<"Commitment"> | string | null
     commitmentDate?: DateTimeFilter<"Commitment"> | Date | string
     unpaidtransaction?: XOR<UnPaidTransactionScalarRelationFilter, unPaidTransactionWhereInput>
@@ -16027,7 +16027,7 @@ export namespace Prisma {
 
   export type CommitmentOrderByWithRelationInput = {
     id?: SortOrder
-    unpaidId?: SortOrder
+    unpaidTransactionId?: SortOrder
     commitmentNote?: SortOrderInput | SortOrder
     commitmentDate?: SortOrder
     unpaidtransaction?: unPaidTransactionOrderByWithRelationInput
@@ -16038,7 +16038,7 @@ export namespace Prisma {
     AND?: CommitmentWhereInput | CommitmentWhereInput[]
     OR?: CommitmentWhereInput[]
     NOT?: CommitmentWhereInput | CommitmentWhereInput[]
-    unpaidId?: IntFilter<"Commitment"> | number
+    unpaidTransactionId?: IntFilter<"Commitment"> | number
     commitmentNote?: StringNullableFilter<"Commitment"> | string | null
     commitmentDate?: DateTimeFilter<"Commitment"> | Date | string
     unpaidtransaction?: XOR<UnPaidTransactionScalarRelationFilter, unPaidTransactionWhereInput>
@@ -16046,7 +16046,7 @@ export namespace Prisma {
 
   export type CommitmentOrderByWithAggregationInput = {
     id?: SortOrder
-    unpaidId?: SortOrder
+    unpaidTransactionId?: SortOrder
     commitmentNote?: SortOrderInput | SortOrder
     commitmentDate?: SortOrder
     _count?: CommitmentCountOrderByAggregateInput
@@ -16061,7 +16061,7 @@ export namespace Prisma {
     OR?: CommitmentScalarWhereWithAggregatesInput[]
     NOT?: CommitmentScalarWhereWithAggregatesInput | CommitmentScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Commitment"> | number
-    unpaidId?: IntWithAggregatesFilter<"Commitment"> | number
+    unpaidTransactionId?: IntWithAggregatesFilter<"Commitment"> | number
     commitmentNote?: StringNullableWithAggregatesFilter<"Commitment"> | string | null
     commitmentDate?: DateTimeWithAggregatesFilter<"Commitment"> | Date | string
   }
@@ -16584,41 +16584,41 @@ export namespace Prisma {
   }
 
   export type PaidCreateInput = {
-    name: string
+    recipientName: string
     transaction: TransactionCreateNestedOneWithoutPaidInput
   }
 
   export type PaidUncheckedCreateInput = {
     id?: number
     transactionId: number
-    name: string
+    recipientName: string
   }
 
   export type PaidUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    recipientName?: StringFieldUpdateOperationsInput | string
     transaction?: TransactionUpdateOneRequiredWithoutPaidNestedInput
   }
 
   export type PaidUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     transactionId?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    recipientName?: StringFieldUpdateOperationsInput | string
   }
 
   export type PaidCreateManyInput = {
     id?: number
     transactionId: number
-    name: string
+    recipientName: string
   }
 
   export type PaidUpdateManyMutationInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    recipientName?: StringFieldUpdateOperationsInput | string
   }
 
   export type PaidUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     transactionId?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    recipientName?: StringFieldUpdateOperationsInput | string
   }
 
   export type unPaidTransactionCreateInput = {
@@ -16665,7 +16665,7 @@ export namespace Prisma {
 
   export type CommitmentUncheckedCreateInput = {
     id?: number
-    unpaidId: number
+    unpaidTransactionId: number
     commitmentNote?: string | null
     commitmentDate: Date | string
   }
@@ -16678,14 +16678,14 @@ export namespace Prisma {
 
   export type CommitmentUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    unpaidId?: IntFieldUpdateOperationsInput | number
+    unpaidTransactionId?: IntFieldUpdateOperationsInput | number
     commitmentNote?: NullableStringFieldUpdateOperationsInput | string | null
     commitmentDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommitmentCreateManyInput = {
     id?: number
-    unpaidId: number
+    unpaidTransactionId: number
     commitmentNote?: string | null
     commitmentDate: Date | string
   }
@@ -16697,7 +16697,7 @@ export namespace Prisma {
 
   export type CommitmentUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    unpaidId?: IntFieldUpdateOperationsInput | number
+    unpaidTransactionId?: IntFieldUpdateOperationsInput | number
     commitmentNote?: NullableStringFieldUpdateOperationsInput | string | null
     commitmentDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17344,7 +17344,7 @@ export namespace Prisma {
   export type PaidCountOrderByAggregateInput = {
     id?: SortOrder
     transactionId?: SortOrder
-    name?: SortOrder
+    recipientName?: SortOrder
   }
 
   export type PaidAvgOrderByAggregateInput = {
@@ -17355,13 +17355,13 @@ export namespace Prisma {
   export type PaidMaxOrderByAggregateInput = {
     id?: SortOrder
     transactionId?: SortOrder
-    name?: SortOrder
+    recipientName?: SortOrder
   }
 
   export type PaidMinOrderByAggregateInput = {
     id?: SortOrder
     transactionId?: SortOrder
-    name?: SortOrder
+    recipientName?: SortOrder
   }
 
   export type PaidSumOrderByAggregateInput = {
@@ -17426,33 +17426,33 @@ export namespace Prisma {
 
   export type CommitmentCountOrderByAggregateInput = {
     id?: SortOrder
-    unpaidId?: SortOrder
+    unpaidTransactionId?: SortOrder
     commitmentNote?: SortOrder
     commitmentDate?: SortOrder
   }
 
   export type CommitmentAvgOrderByAggregateInput = {
     id?: SortOrder
-    unpaidId?: SortOrder
+    unpaidTransactionId?: SortOrder
   }
 
   export type CommitmentMaxOrderByAggregateInput = {
     id?: SortOrder
-    unpaidId?: SortOrder
+    unpaidTransactionId?: SortOrder
     commitmentNote?: SortOrder
     commitmentDate?: SortOrder
   }
 
   export type CommitmentMinOrderByAggregateInput = {
     id?: SortOrder
-    unpaidId?: SortOrder
+    unpaidTransactionId?: SortOrder
     commitmentNote?: SortOrder
     commitmentDate?: SortOrder
   }
 
   export type CommitmentSumOrderByAggregateInput = {
     id?: SortOrder
-    unpaidId?: SortOrder
+    unpaidTransactionId?: SortOrder
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -18887,12 +18887,12 @@ export namespace Prisma {
   }
 
   export type PaidCreateWithoutTransactionInput = {
-    name: string
+    recipientName: string
   }
 
   export type PaidUncheckedCreateWithoutTransactionInput = {
     id?: number
-    name: string
+    recipientName: string
   }
 
   export type PaidCreateOrConnectWithoutTransactionInput = {
@@ -18978,12 +18978,12 @@ export namespace Prisma {
   }
 
   export type PaidUpdateWithoutTransactionInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    recipientName?: StringFieldUpdateOperationsInput | string
   }
 
   export type PaidUncheckedUpdateWithoutTransactionInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    recipientName?: StringFieldUpdateOperationsInput | string
   }
 
   export type unPaidTransactionUpsertWithoutTransactionInput = {
@@ -19172,7 +19172,7 @@ export namespace Prisma {
     OR?: CommitmentScalarWhereInput[]
     NOT?: CommitmentScalarWhereInput | CommitmentScalarWhereInput[]
     id?: IntFilter<"Commitment"> | number
-    unpaidId?: IntFilter<"Commitment"> | number
+    unpaidTransactionId?: IntFilter<"Commitment"> | number
     commitmentNote?: StringNullableFilter<"Commitment"> | string | null
     commitmentDate?: DateTimeFilter<"Commitment"> | Date | string
   }

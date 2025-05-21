@@ -13,10 +13,10 @@ import { number, string } from "zod";
 
     }),
 
-    getCustomerById:asyncHandler<{id:number}>(async(req,res)=>{
-         const id=Number(req.params);
+    getCustomerById:asyncHandler<{},{id:string}>(async(req,res)=>{
+         const id=req.params.id;
         
-        const result=await CUSTOMER_SERVICE.getCustomerById(id)
+        const result=await CUSTOMER_SERVICE.getCustomerById(Number(id))
          res.status(200).json({message:'cutomer get by id', data:result})
     }),
     

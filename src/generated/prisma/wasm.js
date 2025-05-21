@@ -158,7 +158,7 @@ exports.Prisma.TransactionScalarFieldEnum = {
 exports.Prisma.PaidScalarFieldEnum = {
   id: 'id',
   transactionId: 'transactionId',
-  name: 'name'
+  recipientName: 'recipientName'
 };
 
 exports.Prisma.UnPaidTransactionScalarFieldEnum = {
@@ -168,7 +168,7 @@ exports.Prisma.UnPaidTransactionScalarFieldEnum = {
 
 exports.Prisma.CommitmentScalarFieldEnum = {
   id: 'id',
-  unpaidId: 'unpaidId',
+  unpaidTransactionId: 'unpaidTransactionId',
   commitmentNote: 'commitmentNote',
   commitmentDate: 'commitmentDate'
 };

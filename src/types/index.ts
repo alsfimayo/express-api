@@ -65,3 +65,37 @@ export type saleItem={
     quantity:number,
     unitPrice:number
 }
+
+export type TransactionType= "CREDIT"  |  "PAYMENT"
+
+
+export type paymentMethod= "CASH" | "CARD" | "BANK_TRANSFER" | "OTHER"
+
+
+export type Transaction={
+  totalAmount:number,
+   discountAmount:number,
+   type:TransactionType,
+   paymentmethod:paymentMethod,
+   customerId:number,
+   saleId?:number,
+   date:Date,
+}
+export type Paid = {
+  
+  transactionId: number;
+  recipientName: string;
+  
+};
+
+
+export type unPaidTransaction={
+
+transactionId: number;
+}
+
+export type Commitment={
+   unpaidTransactionId :number;
+  commitmentNote? :string;
+  commitmentDate:Date;
+}

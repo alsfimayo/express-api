@@ -72,7 +72,7 @@ model Product{
  model Paid{
   id Int @id @default(autoincrement())
   transactionId Int @unique
-  name String //staff member received payment
+  recipientName String //staff member received payment
 
   transaction Transaction @relation(fields: [transactionId],references: [id])
  }
@@ -84,8 +84,8 @@ model Product{
  }
  model Commitment{
   id Int @id @default(autoincrement())
-  unpaidId Int
-  unpaidtransaction unPaidTransaction @relation(fields: [unpaidId],references: [id])
+  unpaidTransactionId Int
+  unpaidtransaction unPaidTransaction @relation(fields: [unpaidTransactionId],references: [id])
   commitmentNote String?
   commitmentDate DateTime
 
