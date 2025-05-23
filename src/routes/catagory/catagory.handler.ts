@@ -12,9 +12,9 @@ const CATAGORY_HANDLER={
 
 
 
-    delete:asyncHandler<{id:number}>(async(req,res)=>{
-        const id=Number(req.params)
-        const result=await CATAGORY_SERVICE.delete(id)
+    delete:asyncHandler<{},{id:number}>(async(req,res)=>{
+        const id=req.params.id
+        const result=await CATAGORY_SERVICE.delete(Number(id))
         res.status(200).json({message:"catagory deleted",data:result})
     }),
 

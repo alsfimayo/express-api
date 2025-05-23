@@ -30,10 +30,7 @@ import path from "path";
 
 
 const app = express();
-// // app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
-// app.post("/api/upload",(req,res)=>{
-//   res.send('api File Uploaded Successfully')
-// })
+
 app.use(cors());
 const server = createServer(app);
 const io = new Server(server, {

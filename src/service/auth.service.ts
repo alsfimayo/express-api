@@ -22,15 +22,7 @@ const AUTH_SERVICE={
             lname:data.lname,
         });
       return newUser;
-      //{
-    //      message:'signup successful',
-    //      data:{
-    //          id:newUser.id,
-    //          email:newUser.email,
-    //         fname:newUser.fname,
-    //          lname:newUser.lname
-    // }
-    //    }
+      
         
     },
     login:async(user:Login)=>{

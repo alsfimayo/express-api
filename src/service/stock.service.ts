@@ -17,10 +17,10 @@ const STOCK_SERVICE={
         });
         return createStock
     },
-    update:async(id:number,data:Stock)=>{
+    update:async(data:Stock,id:number)=>{
         const updateStock=await prisma.stock.update({
 
-            where:{id:Number(id)},
+            where:{id},
             data:{quantity:data.quantity,
                   manufacturingDate:data.manufacturingDate,
                   expiryDate:data.expiryDate,
@@ -37,8 +37,8 @@ const STOCK_SERVICE={
         return deleteStock;
     },
     getById:async(id:number)=>{
-        const getStockById=await prisma.stock.findFirst({
-            where:{id:Number(id)}
+        const getStockById=await prisma.stock.findUnique({
+            where:{id}
         });
         return getStockById;
     }

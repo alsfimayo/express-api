@@ -20,8 +20,8 @@ const SUPPLIER_HANDLER={
 
 
     update:asyncHandler<Supplier,{id:number}>(async(req,res)=>{
-        const id=Number(req.params);
-        const updateSupplier=await SUPPLIER_SERVICE.updateSupplier(req.body,id);
+        const id=req.params.id;
+        const updateSupplier=await SUPPLIER_SERVICE.updateSupplier(req.body,Number(id));
         res.status(200).json({message:"value updated successfully",data:updateSupplier})
         
     }),

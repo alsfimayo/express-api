@@ -27,7 +27,7 @@ const SALE_HANDLER={
     delete:asyncHandler<{},{id:string}>(async(req,res)=>{
         const {id}=req.params;
         const result=await SALE_SERVICE.delete(Number(id))
-        res.status(200).json({message:"all value deleted successfully"})
+        res.status(200).json({message:"all value deleted successfully", data:result})
     })
 }
 export default SALE_HANDLER;

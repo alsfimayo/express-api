@@ -13,11 +13,11 @@ const PRODUCT_HANDLER={
         res.status(201).json({message:'product added successfully', data:result})
 
     }),
-    getById:asyncHandler<{id:number}>(async(req,res)=>{
+    getById:asyncHandler<{},{id:number}>(async(req,res)=>{
         //If you don't need to extract multiple properties and you're only dealing with a single property 
-        const id= Number(req.params)
+        const id=req.params.id;
         // const{id}=req.params Destructuring 
-        const result=await PRODUCT_SERVICE.getProductById(id)
+        const result=await PRODUCT_SERVICE.getProductById(Number(id))
         res.status(200).json({message:'products get by id',data:result})
 
     }),

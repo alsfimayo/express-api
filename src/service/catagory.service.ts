@@ -16,7 +16,7 @@ const CATAGORY_SERVICE={
     },
     delete:async(id:number)=>{
         const delCatagory=await prisma.category.delete({
-            where:{id:Number(id)}
+            where:{id}
             
         })
         return delCatagory

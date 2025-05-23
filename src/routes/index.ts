@@ -11,6 +11,7 @@ import SALEITEM_ROUTER from "./saleItem/saleItem.routes";
 import TRANSACTION_ROUTER from "./transaction/transaction.routes";
 import PAID_ROUTER from "./paid/paid.routes";
 import UNPAIDTRANSACTION_ROUTER from "./unpaidTransaction/unpaidTransaction.routes";
+import COMMITMENT_ROUTER from "./commitment/commitment.routes";
 
 import UPLOAD_ROUTER from "./upload.routes";
 
@@ -26,8 +27,9 @@ MAIN_ROUTER.use('/sale',authMiddleware,SALE_ROUTER)
 MAIN_ROUTER.use('/saleItem',authMiddleware,SALEITEM_ROUTER)
 MAIN_ROUTER.use('/transaction',authMiddleware,TRANSACTION_ROUTER)
 MAIN_ROUTER.use('/upload',UPLOAD_ROUTER)
-MAIN_ROUTER.use('/paid',PAID_ROUTER)
-MAIN_ROUTER.use('/unpaidTransaction',UNPAIDTRANSACTION_ROUTER)
+MAIN_ROUTER.use('/paid',authMiddleware,PAID_ROUTER)
+MAIN_ROUTER.use('/unpaidTransaction',authMiddleware,UNPAIDTRANSACTION_ROUTER)
+MAIN_ROUTER.use('/commitment',authMiddleware,COMMITMENT_ROUTER)
 
 
 export default MAIN_ROUTER;

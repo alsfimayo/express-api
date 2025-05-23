@@ -23,8 +23,8 @@ const PRODUCT_SERVICE={
 
 
     getProductById:async(id:number)=>{
-        const getProductById=await prisma.product.findFirst({
-            where:{id:Number(id)}
+        const getProductById=await prisma.product.findUnique({
+            where:{id}
         })
         return getProductById;
 

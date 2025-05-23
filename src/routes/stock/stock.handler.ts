@@ -14,8 +14,8 @@ const STOCK_HANDLER={
     
 
     update:asyncHandler<Stock,{id:number}>(async(req,res)=>{
-        const {id}=req.params
-        const result=await STOCK_SERVICE.update(id,req.body)
+        const id=req.params.id;
+        const result=await STOCK_SERVICE.update(req.body,Number(id))
         res.status(200).json({message:"value update using id",data:result})
     }),
 
@@ -26,9 +26,10 @@ const STOCK_HANDLER={
         const data=await STOCK_SERVICE.delete(Number(id))
         res.status(200).json({message:"deleted desired value", data:data});
     }),
-    id:asyncHandler<{id:number}>(async(req,res)=>{
-        const id=Number(req.params)
-        const result=await STOCK_SERVICE.getById(id)
+    id:asyncHandler<{},{id:number}>(async(req,res)=>{
+        const id=req.params.id;
+
+        const result=await STOCK_SERVICE.getById(Number(id))
     })
 
 };

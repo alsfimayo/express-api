@@ -14,7 +14,7 @@ const SUPPLIER_SERVICE={
     },
     updateSupplier:async(data:Supplier,id:number)=>{
         const update=await prisma.supplier.update({
-            where:{id:Number(id)},
+            where:{id},
             data:{name:data.name,
                   phone:data.phone
 
