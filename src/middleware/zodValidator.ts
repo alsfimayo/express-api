@@ -10,7 +10,7 @@ export const schemaParseMiddleWare =
     } catch (error) {
       logger.error(error);
       if (error instanceof ZodError) {
-        return res.status(400).json({
+        return res.status(422).json({
           message: "Validation error",
           errors: error.errors
         });

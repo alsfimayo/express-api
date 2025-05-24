@@ -3,6 +3,8 @@ import prisma from "~/lib/prisma";
 
 const TRANSACTION_SERVICE={
     create:async(data:Transaction)=>{
+        
+
         const createTransaction=await prisma.transaction.create({
             data:{
                 totalAmount:data.totalAmount,
@@ -14,6 +16,7 @@ const TRANSACTION_SERVICE={
                 date:data.date
 
             }
+
         });
         return createTransaction;
     },
